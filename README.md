@@ -4,27 +4,7 @@ A lightweight Node.js + Express proxy that holds the Anthropic API key and Supab
 
 ## Architecture
 
-```
-                ┌────────────────────────┐
-                │  Browser SaaS client   │
-                │  (Supabase JWT in      │
-                │   Authorization header)│
-                └───────────┬────────────┘
-                            │ HTTPS
-                            ▼
-                ┌────────────────────────┐
-                │       api-proxy        │
-                │  helmet · CORS · JSON  │
-                │  auth (JWKS) · ratelim │
-                └───┬────────────────┬───┘
-                    │                │
-                    ▼                ▼
-         ┌──────────────────┐  ┌──────────────────┐
-         │  Anthropic API   │  │  Supabase admin  │
-         │  (server-side    │  │  (service role,  │
-         │   API key)       │  │   whitelist only)│
-         └──────────────────┘  └──────────────────┘
-```
+![Architecture diagram](./assets/screenshots/architecture.svg)
 
 ## Endpoints
 
